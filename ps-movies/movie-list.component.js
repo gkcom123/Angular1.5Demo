@@ -19,7 +19,11 @@
             model.$router.navigate(["Registration"]);
             //model.$router.navigate(["Details", {id:id}, "Overview"]);
         };
-        
+        model.gotoList = function()
+                {
+            console.log("i m here");
+            model.$router.navigate(["Service"]);
+            };
  
     }
 
