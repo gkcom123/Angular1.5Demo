@@ -1,14 +1,17 @@
 <nav class="navbar navbar-default navbar-inverse" class="container-fluid">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" ng-link="['List']">At The Movies</a>
+            <a class="navbar-brand" ng-link="['Service']">At The Movies</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li>
-                <a ng-link="['List']">List</a>
+                <a ng-link="['Register']">Register</a>
             </li>
             <li>
-                <a ng-link="['About']">About</a>
+                <a ng-link="['/Login','Profile']">Login</a>
+            </li>
+            <li>
+                <a ng-click="model.gotoList()">Service</a>
             </li>
         </ul>
     </div>

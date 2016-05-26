@@ -5,8 +5,12 @@
     
     module.value("$routerRootComponent", "movieApp");
         
-    module.component("appAbout",{
-       template: "This is the about page" 
-    });
+    // module.component("appAbout",{
+    //    template: "This is the about page" 
+    // });
+    // module.component("serviceComp",{
+    //    template: "This is serviceComp page" 
+    // });
+    
 
 }());

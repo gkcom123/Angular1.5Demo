@@ -3,52 +3,41 @@
 
     var module = angular.module("psMovies");
 
-    function fetchMovies($http) {
-        return $http.get("/movies.json")
-                    .then(function(response) {
-                        return response.data;
-                    });
-    }
+    
 
     function controller($http) {
 
         var model = this;
-        model.movies = [];
+        //model.movies = [];
 
         model.$onInit = function() {
-            fetchMovies($http).then(function(movies) {
-                model.movies = movies;    
-            });
+            console.log("IN init",model.$router);
         };
         
-        model.goTo = function(id) {
-            model.$router.navigate(["Details", {id:id}, "Overview"]);
+        model.goTo = function() {
+            console.log("i m -",model.$router);
+            model.$router.navigate(["Registration"]);
+            //model.$router.navigate(["Details", {id:id}, "Overview"]);
         };
         
-        model.setRating = function(movie, newRating) {
-            movie.rating = newRating;  
-        };
-        
-        model.upRating = function(movie) {
-            if(movie.rating < 5) {
-                movie.rating += 1;
-            }
-        };
-                        
-        model.downRating = function(movie) {
-            if(movie.rating > 1) {
-                movie.rating -= 1;
-            }
-        };
+ 
     }
 
-    module.component("movieList", {
+    module.component("registerComp", {
         templateUrl: "/ps-movies/movie-list.component.html",
         controllerAs: "model",
         controller: ["$http", controller],
+        $routeConfig: [
+            { path: "/registrationchild", component:"regChild", name: "Registration" }
+            // { path: "/cast", component:"movieCast", name: "Cast"},
+            // { path: "/director", component:"movieDirector", name: "Director"}            
+        ],
         bindings: {
             "$router": "<"
         }
+    });
+    module.component("regChild", {
+       template: "This is the regChild" 
     });
 
 } ());
